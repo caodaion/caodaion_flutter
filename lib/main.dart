@@ -9,7 +9,7 @@ final _shellNavigatorAKey = GlobalKey<NavigatorState>(debugLabel: 'shellA');
 final _shellNavigatorBKey = GlobalKey<NavigatorState>(debugLabel: 'shellB');
 
 final goRouter = GoRouter(
-  initialLocation: '/a',
+  initialLocation: '/',
   // * Passing a navigatorKey causes an issue on hot reload:
   // * https://github.com/flutter/flutter/issues/113757#issuecomment-1518421380
   // * However it's still necessary otherwise the navigator pops back to
@@ -28,9 +28,9 @@ final goRouter = GoRouter(
           navigatorKey: _shellNavigatorAKey,
           routes: [
             GoRoute(
-              path: '/a',
+              path: '/',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: RootScreen(label: 'A', detailsPath: '/a/details'),
+                child: RootScreen(label: 'A', detailsPath: '/details'),
               ),
               routes: [
                 GoRoute(
