@@ -5,8 +5,14 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 
 // private navigators
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _shellNavigatorAKey = GlobalKey<NavigatorState>(debugLabel: 'shellA');
-final _shellNavigatorBKey = GlobalKey<NavigatorState>(debugLabel: 'shellB');
+final _shellNavigatorHomeKey =
+    GlobalKey<NavigatorState>(debugLabel: 'shellHome');
+final _shellNavigatorTNHTKey =
+    GlobalKey<NavigatorState>(debugLabel: 'shellTNHT');
+final _shellNavigatorDaoSuKey =
+    GlobalKey<NavigatorState>(debugLabel: 'shellDaoSu');
+final _shellNavigatorAppKey =
+    GlobalKey<NavigatorState>(debugLabel: '_shellApp');
 
 final goRouter = GoRouter(
   initialLocation: '/',
@@ -25,12 +31,13 @@ final goRouter = GoRouter(
       },
       branches: [
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorAKey,
+          navigatorKey: _shellNavigatorHomeKey,
           routes: [
             GoRoute(
               path: '/',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: RootScreen(label: 'A', detailsPath: '/details'),
+                child: RootScreen(
+                    label: '_shellNavigatorHomeKey', detailsPath: '/details'),
               ),
               routes: [
                 GoRoute(
@@ -42,13 +49,55 @@ final goRouter = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorBKey,
+          navigatorKey: _shellNavigatorTNHTKey,
           routes: [
             // Shopping Cart
             GoRoute(
-              path: '/b',
+              path: '/tnht',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: RootScreen(label: 'B', detailsPath: '/b/details'),
+                child: RootScreen(
+                    label: '_shellNavigatorTNHTKey',
+                    detailsPath: '/tnht/details'),
+              ),
+              routes: [
+                GoRoute(
+                  path: 'details',
+                  builder: (context, state) => const DetailsScreen(label: 'B'),
+                ),
+              ],
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          navigatorKey: _shellNavigatorDaoSuKey,
+          routes: [
+            // Shopping Cart
+            GoRoute(
+              path: '/dao-su',
+              pageBuilder: (context, state) => const NoTransitionPage(
+                child: RootScreen(
+                    label: '_shellNavigatorDaoSuKey',
+                    detailsPath: '/dao-su/details'),
+              ),
+              routes: [
+                GoRoute(
+                  path: 'details',
+                  builder: (context, state) => const DetailsScreen(label: 'B'),
+                ),
+              ],
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          navigatorKey: _shellNavigatorAppKey,
+          routes: [
+            // Shopping Cart
+            GoRoute(
+              path: '/ung-dung',
+              pageBuilder: (context, state) => const NoTransitionPage(
+                child: RootScreen(
+                    label: '_shellNavigatorAppKey',
+                    detailsPath: '/ung-dung/details'),
               ),
               routes: [
                 GoRoute(
@@ -143,13 +192,39 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: body,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: selectedIndex,
-        destinations: const [
-          NavigationDestination(label: 'Section A', icon: Icon(Icons.home)),
-          NavigationDestination(label: 'Section B', icon: Icon(Icons.settings)),
-        ],
-        onDestinationSelected: onDestinationSelected,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        child: NavigationBar(
+          selectedIndex: selectedIndex,
+          destinations: const [
+            NavigationDestination(
+              label: 'Trang chủ',
+              icon: Icon(Icons.home_max),
+              tooltip: "Trang chủ",
+            ),
+            NavigationDestination(
+              label: 'TNHT',
+              icon: Icon(Icons.book),
+              tooltip: "Thánh Ngôn Hiệp Tuyển",
+            ),
+            NavigationDestination(
+              label: 'Đạo sự',
+              icon: Icon(Icons.newspaper),
+              tooltip: "Đạo sự",
+            ),
+            NavigationDestination(
+              label: 'Ứng dụng',
+              icon: Icon(Icons.apps),
+              tooltip: "Ứng dụng",
+            ),
+          ],
+          onDestinationSelected: onDestinationSelected,
+        ),
       ),
     );
   }
@@ -177,12 +252,20 @@ class ScaffoldWithNavigationRail extends StatelessWidget {
             labelType: NavigationRailLabelType.all,
             destinations: const <NavigationRailDestination>[
               NavigationRailDestination(
-                label: Text('Section A'),
-                icon: Icon(Icons.home),
+                label: Text('Trang chủ'),
+                icon: Icon(Icons.home_max),
               ),
               NavigationRailDestination(
-                label: Text('Section B'),
-                icon: Icon(Icons.settings),
+                label: Text('TNHT'),
+                icon: Icon(Icons.book),
+              ),
+              NavigationRailDestination(
+                label: Text('Đạo sự'),
+                icon: Icon(Icons.newspaper),
+              ),
+              NavigationRailDestination(
+                label: Text('Ứng dụng'),
+                icon: Icon(Icons.apps),
               ),
             ],
           ),
