@@ -11,8 +11,10 @@ final _shellNavigatorTNHTKey =
     GlobalKey<NavigatorState>(debugLabel: 'shellTNHT');
 final _shellNavigatorDaoSuKey =
     GlobalKey<NavigatorState>(debugLabel: 'shellDaoSu');
-final _shellNavigatorAppKey =
-    GlobalKey<NavigatorState>(debugLabel: '_shellApp');
+final _shellNavigatorAppsKey =
+    GlobalKey<NavigatorState>(debugLabel: '_shellApps');
+final _shellNavigatorKinhKey =
+    GlobalKey<NavigatorState>(debugLabel: '_shellKinh');
 
 final goRouter = GoRouter(
   initialLocation: '/',
@@ -89,7 +91,7 @@ final goRouter = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorAppKey,
+          navigatorKey: _shellNavigatorAppsKey,
           routes: [
             // Shopping Cart
             GoRoute(
@@ -98,6 +100,26 @@ final goRouter = GoRouter(
                 child: RootScreen(
                     label: '_shellNavigatorAppKey',
                     detailsPath: '/ung-dung/details'),
+              ),
+              routes: [
+                GoRoute(
+                  path: 'details',
+                  builder: (context, state) => const DetailsScreen(label: 'B'),
+                ),
+              ],
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          navigatorKey: _shellNavigatorKinhKey,
+          routes: [
+            // Shopping Cart
+            GoRoute(
+              path: '/kinh',
+              pageBuilder: (context, state) => const NoTransitionPage(
+                child: RootScreen(
+                    label: '_shellNavigatorKinhKey',
+                    detailsPath: '/kinh/details'),
               ),
               routes: [
                 GoRoute(
@@ -193,38 +215,102 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
     return Scaffold(
       body: body,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          context.go('/kinh');
+        },
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        child: NavigationBar(
-          selectedIndex: selectedIndex,
-          destinations: const [
-            NavigationDestination(
-              label: 'Trang chủ',
-              icon: Icon(Icons.home_max),
-              tooltip: "Trang chủ",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            BottomAppBarItem(
+              onPressed: () {
+                context.go('/');
+              },
+              label: "Trang chủ",
+              iconData: Icons.home_max,
+              route: '/',
+              isActive: selectedIndex == 0,
             ),
-            NavigationDestination(
-              label: 'TNHT',
-              icon: Icon(Icons.book),
-              tooltip: "Thánh Ngôn Hiệp Tuyển",
+            BottomAppBarItem(
+              onPressed: () {
+                context.go('/tnht');
+              },
+              label: "TNHT",
+              iconData: Icons.book,
+              route: '/tnht',
+              isActive: selectedIndex == 1,
             ),
-            NavigationDestination(
-              label: 'Đạo sự',
-              icon: Icon(Icons.newspaper),
-              tooltip: "Đạo sự",
+            const SizedBox(
+              width: 40,
             ),
-            NavigationDestination(
-              label: 'Ứng dụng',
-              icon: Icon(Icons.apps),
-              tooltip: "Ứng dụng",
+            BottomAppBarItem(
+              onPressed: () {
+                context.go('/dao-su');
+              },
+              label: "Đạo sự",
+              iconData: Icons.newspaper,
+              route: '/dao-su',
+              isActive: selectedIndex == 2,
+            ),
+            BottomAppBarItem(
+              onPressed: () {
+                context.go('/ung-dung');
+              },
+              label: "Ứng dụng",
+              iconData: Icons.apps,
+              route: '/ung-dung',
+              isActive: selectedIndex == 3,
             ),
           ],
-          onDestinationSelected: onDestinationSelected,
         ),
+      ),
+    );
+  }
+}
+
+class BottomAppBarItem extends StatelessWidget {
+  final VoidCallback onPressed;
+  final IconData iconData;
+  final String label;
+  final String route;
+  final bool isActive;
+
+  const BottomAppBarItem({
+    super.key,
+    required this.onPressed,
+    required this.label,
+    required this.iconData,
+    required this.route,
+    this.isActive = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
+      style: TextButton.styleFrom(
+        foregroundColor:
+            isActive ? Theme.of(context).primaryColor : const Color(0xff5F6368),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(iconData),
+          const SizedBox(
+            height: 4,
+          ),
+          Text(
+            label,
+            style: const TextStyle(
+              fontWeight: FontWeight.normal,
+              fontSize: 12,
+            ),
+          ),
+        ],
       ),
     );
   }
