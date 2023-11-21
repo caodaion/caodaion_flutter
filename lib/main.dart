@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
+import './components/scaffold_with_nested_navigation/scaffold_with_nested_navigation.dart';
 
 // private navigators
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -13,6 +14,8 @@ final _shellNavigatorDaoSuKey =
     GlobalKey<NavigatorState>(debugLabel: 'shellDaoSu');
 final _shellNavigatorAppsKey =
     GlobalKey<NavigatorState>(debugLabel: '_shellApps');
+final _shellNavigatorKinhKey =
+    GlobalKey<NavigatorState>(debugLabel: '_shellKinh');
 
 final goRouter = GoRouter(
   initialLocation: '/',
@@ -108,6 +111,26 @@ final goRouter = GoRouter(
             ),
           ],
         ),
+        StatefulShellBranch(
+          navigatorKey: _shellNavigatorKinhKey,
+          routes: [
+            // Shopping Cart
+            GoRoute(
+              path: '/kinh',
+              pageBuilder: (context, state) => const NoTransitionPage(
+                child: RootScreen(
+                    label: '_shellNavigatorKinhKey',
+                    detailsPath: '/kinh/details'),
+              ),
+              routes: [
+                GoRoute(
+                  path: 'details',
+                  builder: (context, state) => const DetailsScreen(label: 'B'),
+                ),
+              ],
+            ),
+          ],
+        ),
       ],
     ),
   ],
@@ -131,189 +154,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xff4285f4),
         ),
-      ),
-    );
-  }
-}
-
-// Stateful navigation based on:
-// https://github.com/flutter/packages/blob/main/packages/go_router/example/lib/stateful_shell_route.dart
-class ScaffoldWithNestedNavigation extends StatelessWidget {
-  const ScaffoldWithNestedNavigation({
-    Key? key,
-    required this.navigationShell,
-  }) : super(
-            key: key ?? const ValueKey<String>('ScaffoldWithNestedNavigation'));
-  final StatefulNavigationShell navigationShell;
-
-  void _goBranch(int index) {
-    navigationShell.goBranch(
-      index,
-      // A common pattern when using bottom navigation bars is to support
-      // navigating to the initial location when tapping the item that is
-      // already active. This example demonstrates how to support this behavior,
-      // using the initialLocation parameter of goBranch.
-      initialLocation: index == navigationShell.currentIndex,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 450) {
-        return ScaffoldWithNavigationBar(
-          body: navigationShell,
-          selectedIndex: navigationShell.currentIndex,
-          onDestinationSelected: _goBranch,
-        );
-      } else {
-        return ScaffoldWithNavigationRail(
-          body: navigationShell,
-          selectedIndex: navigationShell.currentIndex,
-          onDestinationSelected: _goBranch,
-        );
-      }
-    });
-  }
-}
-
-class ScaffoldWithNavigationBar extends StatelessWidget {
-  const ScaffoldWithNavigationBar({
-    super.key,
-    required this.body,
-    required this.selectedIndex,
-    required this.onDestinationSelected,
-  });
-  final Widget body;
-  final int selectedIndex;
-  final ValueChanged<int> onDestinationSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: body,
-      bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        child: NavigationBar(
-          selectedIndex: selectedIndex,
-          destinations: const [
-            NavigationDestination(
-              label: 'Trang chủ',
-              icon: Icon(Icons.home_max),
-              tooltip: "Trang chủ",
-            ),
-            NavigationDestination(
-              label: 'TNHT',
-              icon: Icon(Icons.book),
-              tooltip: "Thánh Ngôn Hiệp Tuyển",
-            ),
-            NavigationDestination(
-              label: 'Đạo sự',
-              icon: Icon(Icons.newspaper),
-              tooltip: "Đạo sự",
-            ),
-            NavigationDestination(
-              label: 'Ứng dụng',
-              icon: Icon(Icons.apps),
-              tooltip: "Ứng dụng",
-            ),
-          ],
-          onDestinationSelected: onDestinationSelected,
-        ),
-      ),
-    );
-  }
-}
-
-class BottomAppBarItem extends StatelessWidget {
-  final VoidCallback onPressed;
-  final IconData iconData;
-  final String label;
-  final String route;
-  final bool isActive;
-
-  const BottomAppBarItem({
-    super.key,
-    required this.onPressed,
-    required this.label,
-    required this.iconData,
-    required this.route,
-    this.isActive = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
-        foregroundColor:
-            isActive ? Theme.of(context).primaryColor : const Color(0xff5F6368),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(iconData),
-          const SizedBox(
-            height: 4,
-          ),
-          Text(
-            label,
-            style: const TextStyle(
-              fontWeight: FontWeight.normal,
-              fontSize: 12,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ScaffoldWithNavigationRail extends StatelessWidget {
-  const ScaffoldWithNavigationRail({
-    super.key,
-    required this.body,
-    required this.selectedIndex,
-    required this.onDestinationSelected,
-  });
-  final Widget body;
-  final int selectedIndex;
-  final ValueChanged<int> onDestinationSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: [
-          NavigationRail(
-            selectedIndex: selectedIndex,
-            onDestinationSelected: onDestinationSelected,
-            labelType: NavigationRailLabelType.all,
-            destinations: const <NavigationRailDestination>[
-              NavigationRailDestination(
-                label: Text('Trang chủ'),
-                icon: Icon(Icons.home_max),
-              ),
-              NavigationRailDestination(
-                label: Text('TNHT'),
-                icon: Icon(Icons.book),
-              ),
-              NavigationRailDestination(
-                label: Text('Đạo sự'),
-                icon: Icon(Icons.newspaper),
-              ),
-              NavigationRailDestination(
-                label: Text('Ứng dụng'),
-                icon: Icon(Icons.apps),
-              ),
-            ],
-          ),
-          const VerticalDivider(thickness: 1, width: 1),
-          // This is the main content.
-          Expanded(
-            child: body,
-          ),
-        ],
       ),
     );
   }
