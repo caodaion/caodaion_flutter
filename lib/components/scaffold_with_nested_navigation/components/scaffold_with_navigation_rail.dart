@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../components/bottom_app_bar_item.dart';
 
 class ScaffoldWithNavigationRail extends StatelessWidget {
   const ScaffoldWithNavigationRail({
@@ -14,28 +16,70 @@ class ScaffoldWithNavigationRail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.go('/kinh');
+        },
+        tooltip: "Đọc kinh",
+        child: const Icon(Icons.menu_book_rounded),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniStartDocked,
       body: Row(
         children: [
-          NavigationRail(
-            selectedIndex: selectedIndex,
-            onDestinationSelected: onDestinationSelected,
-            labelType: NavigationRailLabelType.all,
-            destinations: const <NavigationRailDestination>[
-              NavigationRailDestination(
-                label: Text('Trang chủ'),
-                icon: Icon(Icons.home_max),
+          Column(
+            children: [
+              const SizedBox(
+                height: 12,
               ),
-              NavigationRailDestination(
-                label: Text('TNHT'),
-                icon: Icon(Icons.book),
+              BottomAppBarItem(
+                onPressed: () {
+                  context.go('/');
+                },
+                label: "Trang chủ",
+                iconData: Icons.home_max,
+                route: '/',
+                isActive: selectedIndex == 0,
+                tooltip: "Trang chủ",
               ),
-              NavigationRailDestination(
-                label: Text('Đạo sự'),
-                icon: Icon(Icons.newspaper),
+              const SizedBox(
+                height: 12,
               ),
-              NavigationRailDestination(
-                label: Text('Ứng dụng'),
-                icon: Icon(Icons.apps),
+              BottomAppBarItem(
+                onPressed: () {
+                  context.go('/tnht');
+                },
+                label: "TNHT",
+                iconData: Icons.book_rounded,
+                route: '/tnht',
+                isActive: selectedIndex == 1,
+                tooltip: "Thánh Ngôn Hiệp Tuyển",
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              BottomAppBarItem(
+                onPressed: () {
+                  context.go('/dao-su');
+                },
+                label: "Đạo sự",
+                iconData: Icons.newspaper,
+                route: '/dao-su',
+                isActive: selectedIndex == 2,
+                tooltip: "Đạo sự",
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              BottomAppBarItem(
+                onPressed: () {
+                  context.go('/ung-dung');
+                },
+                label: "Ứng dụng",
+                iconData: Icons.apps,
+                route: '/ung-dung',
+                isActive: selectedIndex == 3,
+                tooltip: "Ứng dụng",
               ),
             ],
           ),

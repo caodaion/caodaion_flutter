@@ -1,4 +1,6 @@
+import '../components/bottom_app_bar_item.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ScaffoldWithNavigationBar extends StatelessWidget {
   const ScaffoldWithNavigationBar({
@@ -15,33 +17,63 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: body,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.go('/kinh');
+        },
+        tooltip: "Đọc kinh",
+        child: const Icon(Icons.menu_book_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        child: NavigationBar(
-          selectedIndex: selectedIndex,
-          destinations: const [
-            NavigationDestination(
-              label: 'Trang chủ',
-              icon: Icon(Icons.home_max),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            BottomAppBarItem(
+              onPressed: () {
+                context.go('/');
+              },
+              label: "Trang chủ",
+              iconData: Icons.home_max,
+              route: '/',
+              isActive: selectedIndex == 0,
               tooltip: "Trang chủ",
             ),
-            NavigationDestination(
-              label: 'TNHT',
-              icon: Icon(Icons.book),
+            BottomAppBarItem(
+              onPressed: () {
+                context.go('/tnht');
+              },
+              label: "TNHT",
+              iconData: Icons.book_rounded,
+              route: '/tnht',
+              isActive: selectedIndex == 1,
               tooltip: "Thánh Ngôn Hiệp Tuyển",
             ),
-            NavigationDestination(
-              label: 'Đạo sự',
-              icon: Icon(Icons.newspaper),
+            const SizedBox(
+              width: 40,
+            ),
+            BottomAppBarItem(
+              onPressed: () {
+                context.go('/dao-su');
+              },
+              label: "Đạo sự",
+              iconData: Icons.newspaper,
+              route: '/dao-su',
+              isActive: selectedIndex == 2,
               tooltip: "Đạo sự",
             ),
-            NavigationDestination(
-              label: 'Ứng dụng',
-              icon: Icon(Icons.apps),
+            BottomAppBarItem(
+              onPressed: () {
+                context.go('/ung-dung');
+              },
+              label: "Ứng dụng",
+              iconData: Icons.apps,
+              route: '/ung-dung',
+              isActive: selectedIndex == 3,
               tooltip: "Ứng dụng",
             ),
           ],
-          onDestinationSelected: onDestinationSelected,
         ),
       ),
     );

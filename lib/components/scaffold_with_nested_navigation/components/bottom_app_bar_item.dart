@@ -5,6 +5,7 @@ class BottomAppBarItem extends StatelessWidget {
   final IconData iconData;
   final String label;
   final String route;
+  final String tooltip;
   final bool isActive;
 
   const BottomAppBarItem({
@@ -13,6 +14,7 @@ class BottomAppBarItem extends StatelessWidget {
     required this.label,
     required this.iconData,
     required this.route,
+    this.tooltip = '',
     this.isActive = false,
   });
 
@@ -24,21 +26,24 @@ class BottomAppBarItem extends StatelessWidget {
         foregroundColor:
             isActive ? Theme.of(context).primaryColor : const Color(0xff5F6368),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(iconData),
-          const SizedBox(
-            height: 4,
-          ),
-          Text(
-            label,
-            style: const TextStyle(
-              fontWeight: FontWeight.normal,
-              fontSize: 12,
+      child: Tooltip(
+        message: tooltip,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(iconData),
+            const SizedBox(
+              height: 4,
             ),
-          ),
-        ],
+            Text(
+              label,
+              style: const TextStyle(
+                fontWeight: FontWeight.normal,
+                fontSize: 12,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
