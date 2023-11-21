@@ -13,8 +13,6 @@ final _shellNavigatorDaoSuKey =
     GlobalKey<NavigatorState>(debugLabel: 'shellDaoSu');
 final _shellNavigatorAppsKey =
     GlobalKey<NavigatorState>(debugLabel: '_shellApps');
-final _shellNavigatorKinhKey =
-    GlobalKey<NavigatorState>(debugLabel: '_shellKinh');
 
 final goRouter = GoRouter(
   initialLocation: '/',
@@ -110,26 +108,6 @@ final goRouter = GoRouter(
             ),
           ],
         ),
-        StatefulShellBranch(
-          navigatorKey: _shellNavigatorKinhKey,
-          routes: [
-            // Shopping Cart
-            GoRoute(
-              path: '/kinh',
-              pageBuilder: (context, state) => const NoTransitionPage(
-                child: RootScreen(
-                    label: '_shellNavigatorKinhKey',
-                    detailsPath: '/kinh/details'),
-              ),
-              routes: [
-                GoRoute(
-                  path: 'details',
-                  builder: (context, state) => const DetailsScreen(label: 'B'),
-                ),
-              ],
-            ),
-          ],
-        ),
       ],
     ),
   ],
@@ -214,58 +192,33 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: body,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.go('/kinh');
-        },
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            BottomAppBarItem(
-              onPressed: () {
-                context.go('/');
-              },
-              label: "Trang chủ",
-              iconData: Icons.home_max,
-              route: '/',
-              isActive: selectedIndex == 0,
+        child: NavigationBar(
+          selectedIndex: selectedIndex,
+          destinations: const [
+            NavigationDestination(
+              label: 'Trang chủ',
+              icon: Icon(Icons.home_max),
+              tooltip: "Trang chủ",
             ),
-            BottomAppBarItem(
-              onPressed: () {
-                context.go('/tnht');
-              },
-              label: "TNHT",
-              iconData: Icons.book,
-              route: '/tnht',
-              isActive: selectedIndex == 1,
+            NavigationDestination(
+              label: 'TNHT',
+              icon: Icon(Icons.book),
+              tooltip: "Thánh Ngôn Hiệp Tuyển",
             ),
-            const SizedBox(
-              width: 40,
+            NavigationDestination(
+              label: 'Đạo sự',
+              icon: Icon(Icons.newspaper),
+              tooltip: "Đạo sự",
             ),
-            BottomAppBarItem(
-              onPressed: () {
-                context.go('/dao-su');
-              },
-              label: "Đạo sự",
-              iconData: Icons.newspaper,
-              route: '/dao-su',
-              isActive: selectedIndex == 2,
-            ),
-            BottomAppBarItem(
-              onPressed: () {
-                context.go('/ung-dung');
-              },
-              label: "Ứng dụng",
-              iconData: Icons.apps,
-              route: '/ung-dung',
-              isActive: selectedIndex == 3,
+            NavigationDestination(
+              label: 'Ứng dụng',
+              icon: Icon(Icons.apps),
+              tooltip: "Ứng dụng",
             ),
           ],
+          onDestinationSelected: onDestinationSelected,
         ),
       ),
     );
