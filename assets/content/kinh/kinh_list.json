@@ -1,0 +1,27 @@
+[
+    {
+        "key": "niem-huong",
+        "name": "Niệm Hương",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "khai-kinh",
+        "name": "Khai kinh",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "ngoc-hoang-thuong-de",
+        "name": "Ngọc Hoàng Thượng Đế",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "thich-giao",
+        "name": "Thích Giáo",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "kinh-tam-tanh",
+        "name": "Kinh Tắm Thánh",
+        "group": "quan_hon_tang_te"
+    }
+]

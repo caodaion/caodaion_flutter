@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../constant/constant.dart';
 import 'widgets/scaffold_with_navigation_bar.dart';
 import 'widgets/scaffold_with_navigation_rail.dart';
 
@@ -27,7 +28,7 @@ class ScaffoldWithNestedNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 450) {
+      if (constraints.maxWidth < laptops) {
         return ScaffoldWithNavigationBar(
           body: navigationShell,
           selectedIndex: navigationShell.currentIndex,

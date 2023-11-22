@@ -1,5 +1,5 @@
+import './widgets/kinh_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 class KinhPage extends StatelessWidget {
   const KinhPage({super.key});
@@ -27,8 +27,12 @@ class KinhPage extends StatelessWidget {
           ),
           body: const TabBarView(
             children: [
-              Icon(Icons.home),
-              Icon(Icons.menu_book),
+              KinhList(
+                listType: 'cung_tu_thoi',
+              ),
+              KinhList(
+                listType: 'quan_hon_tang_te',
+              ),
             ],
           ),
         ),
