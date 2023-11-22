@@ -24,7 +24,9 @@ class _KinhDetailsState extends State<KinhDetails> {
     content = Future.value(""); // Initialize content with an empty string
     Future.delayed(Duration.zero, () {
       content = loadTextFile();
-      kinhs = fetchKinhs();
+      Future.delayed(Duration.zero, () {
+        kinhs = fetchKinhs();
+      });
     });
   }
 
