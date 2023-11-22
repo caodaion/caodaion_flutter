@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../model/kinh.dart';
 import '../../../constant/constant.dart';
 import '../../../service/kinh_service.dart';
+import 'package:go_router/go_router.dart';
 
 class KinhList extends StatefulWidget {
   const KinhList({super.key, required this.listType});
@@ -17,7 +18,7 @@ class _KinhListState extends State<KinhList> {
   @override
   void initState() {
     super.initState();
-    kinhs = fetchItems();
+    kinhs = fetchKinhs();
     if (widget.listType.isNotEmpty) {
       kinhs = kinhs;
     }
@@ -41,7 +42,6 @@ class _KinhListState extends State<KinhList> {
             return Text('Error: ${snapshot.error}');
           } else {
             List<Kinh> filteredItems = filterItems(snapshot.data!);
-
             return GridView.builder(
               padding: const EdgeInsets.all(12),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -61,7 +61,9 @@ class _KinhListState extends State<KinhList> {
               itemBuilder: (context, index) {
                 return Card(
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go('/kinh/${filteredItems[index].key}');
+                    },
                     style: TextButton.styleFrom(
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
