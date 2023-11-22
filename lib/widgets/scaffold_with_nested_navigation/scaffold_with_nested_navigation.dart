@@ -28,7 +28,7 @@ class ScaffoldWithNestedNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < laptops) {
+      if (constraints.maxWidth < largeDevices) {
         return ScaffoldWithNavigationBar(
           body: navigationShell,
           selectedIndex: navigationShell.currentIndex,

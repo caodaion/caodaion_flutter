@@ -12,69 +12,82 @@ class KinhList extends StatefulWidget {
 }
 
 class _KinhListState extends State<KinhList> {
-  late List<Kinh> kinhs;
+  late Future<List<Kinh>> kinhs;
 
   @override
   void initState() {
     super.initState();
-    loadJsonData().then((String jsonString) {
-      setState(() {
-        kinhs = parseJson(jsonString);
-        if (widget.listType.isNotEmpty) {
-          kinhs = parseJson(jsonString)
-              .where((element) => element.group == widget.listType)
-              .toList();
-        }
-      });
-    });
+    kinhs = fetchItems();
+    if (widget.listType.isNotEmpty) {
+      kinhs = kinhs;
+    }
+  }
+
+  List<Kinh> filterItems(List<Kinh> items) {
+    return items.where((item) => item.group == widget.listType).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
 
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: screenSize.width < portraitPhones
-            ? 2
-            : screenSize.width < tablets
-                ? 3
-                : screenSize.width < laptops
-                    ? 4
-                    : screenSize.width < largeDevices
-                        ? 5
-                        : 6,
-        crossAxisSpacing: 8.0,
-        mainAxisSpacing: 8.0,
+    return Scaffold(
+      body: FutureBuilder<List<Kinh>>(
+        future: kinhs,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const CircularProgressIndicator();
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else {
+            List<Kinh> filteredItems = filterItems(snapshot.data!);
+
+            return GridView.builder(
+              padding: const EdgeInsets.all(12),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: screenSize.width < portraitPhones
+                    ? 2
+                    : screenSize.width < tablets
+                        ? 3
+                        : screenSize.width < laptops
+                            ? 4
+                            : screenSize.width < largeDevices
+                                ? 5
+                                : 6,
+                crossAxisSpacing: 4.0,
+                mainAxisSpacing: 4.0,
+              ),
+              itemCount: filteredItems.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12),
+                        ),
+                      ),
+                      side: const BorderSide(
+                        width: 1,
+                        color: Color(0xFFE0E0E0),
+                      ),
+                      backgroundColor: const Color(0xFFFFFFFF),
+                    ),
+                    child: Text(
+                      filteredItems[index].name,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onBackground,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                );
+              },
+            );
+          }
+        },
       ),
-      itemCount: kinhs.length,
-      padding: const EdgeInsets.all(12),
-      itemBuilder: (context, index) {
-        return Card(
-          child: TextButton(
-            onPressed: () {},
-            style: TextButton.styleFrom(
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(12),
-                ),
-              ),
-              side: const BorderSide(
-                width: 1,
-                color: Color(0xFFE0E0E0),
-              ),
-              backgroundColor: const Color(0xFFFFFFFF),
-            ),
-            child: Text(
-              kinhs[index].name,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-        );
-      },
     );
   }
 }
