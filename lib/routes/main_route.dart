@@ -1,9 +1,13 @@
 // private navigators
+import 'package:caodaion_flutter/pages/apps_page/apps_page.dart';
+import 'package:caodaion_flutter/pages/dao_su_page/dao_su_page.dart';
+import 'package:caodaion_flutter/pages/home_page/home_page.dart';
+import 'package:caodaion_flutter/pages/kinh_page/kinh_page.dart';
+import 'package:caodaion_flutter/pages/tnht_page/tnht_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../components/scaffold_with_nested_navigation/scaffold_with_nested_navigation.dart';
-import '../pages/root_screen/root_screen.dart';
 import '../pages/details_screen/details_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -40,8 +44,7 @@ final goRouter = GoRouter(
             GoRoute(
               path: '/',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: RootScreen(
-                    label: '_shellNavigatorHomeKey', detailsPath: '/details'),
+                child: HomePage(),
               ),
               routes: [
                 GoRoute(
@@ -59,9 +62,7 @@ final goRouter = GoRouter(
             GoRoute(
               path: '/tnht',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: RootScreen(
-                    label: '_shellNavigatorTNHTKey',
-                    detailsPath: '/tnht/details'),
+                child: TNHTPage(),
               ),
               routes: [
                 GoRoute(
@@ -79,9 +80,7 @@ final goRouter = GoRouter(
             GoRoute(
               path: '/dao-su',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: RootScreen(
-                    label: '_shellNavigatorDaoSuKey',
-                    detailsPath: '/dao-su/details'),
+                child: DaoSuPage(),
               ),
               routes: [
                 GoRoute(
@@ -99,9 +98,7 @@ final goRouter = GoRouter(
             GoRoute(
               path: '/ung-dung',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: RootScreen(
-                    label: '_shellNavigatorAppKey',
-                    detailsPath: '/ung-dung/details'),
+                child: AppsPage(),
               ),
               routes: [
                 GoRoute(
@@ -119,9 +116,7 @@ final goRouter = GoRouter(
             GoRoute(
               path: '/kinh',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: RootScreen(
-                    label: '_shellNavigatorKinhKey',
-                    detailsPath: '/kinh/details'),
+                child: KinhPage(),
               ),
               routes: [
                 GoRoute(
