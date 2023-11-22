@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xff4285f4),
         ),
+        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
       ),
     );
   }

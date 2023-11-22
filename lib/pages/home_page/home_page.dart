@@ -5,6 +5,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Nam Mô Cao Đài Tiên Ông Đại Bồ Tát Ma Ha Tát");
+    return const SafeArea(
+      child: Center(
+        child: Text("Nam Mô Cao Đài Tiên Ông Đại Bồ Tát Ma Ha Tát"),
+      ),
+    );
   }
 }

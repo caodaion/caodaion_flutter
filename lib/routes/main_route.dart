@@ -7,8 +7,9 @@ import 'package:caodaion_flutter/pages/tnht_page/tnht_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../components/scaffold_with_nested_navigation/scaffold_with_nested_navigation.dart';
+import '../widgets/scaffold_with_nested_navigation/scaffold_with_nested_navigation.dart';
 import '../pages/details_screen/details_screen.dart';
+import '../pages/kinh_page/route.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorHomeKey =
@@ -118,12 +119,7 @@ final goRouter = GoRouter(
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: KinhPage(),
               ),
-              routes: [
-                GoRoute(
-                  path: 'details',
-                  builder: (context, state) => const DetailsScreen(label: 'B'),
-                ),
-              ],
+              routes: kinhRouter,
             ),
           ],
         ),

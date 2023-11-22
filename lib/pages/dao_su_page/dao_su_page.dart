@@ -5,6 +5,10 @@ class DaoSuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Dao Su");
+    return const SafeArea(
+      child: Center(
+        child: Text("Dao Su"),
+      ),
+    );
   }
 }

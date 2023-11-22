@@ -5,6 +5,10 @@ class TNHTPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("TNHT");
+    return const SafeArea(
+      child: Center(
+        child: Text("TNHT"),
+      ),
+    );
   }
 }

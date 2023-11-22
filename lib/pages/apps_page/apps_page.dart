@@ -5,6 +5,10 @@ class AppsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Apps");
+    return const SafeArea(
+      child: Center(
+        child: Text("Apps"),
+      ),
+    );
   }
 }
