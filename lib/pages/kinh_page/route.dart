@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 final kinhRouter = [
   GoRoute(
-    path: ':key',
+    path: ':path',
     builder: (context, state) => const KinhDetails(),
   )
 ];
