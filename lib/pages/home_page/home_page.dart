@@ -5,6 +5,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Home");
+    return const Text("Nam Mô Cao Đài Tiên Ông Đại Bồ Tát Ma Ha Tát");
   }
 }
