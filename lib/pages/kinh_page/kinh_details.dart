@@ -20,6 +20,7 @@ class KinhDetails extends StatefulWidget {
 class _KinhDetailsState extends State<KinhDetails> {
   late Future<List<Kinh>> kinhs;
   late Future<String> content;
+  double selectedFontSize = 1.0;
 
   @override
   void initState() {
@@ -100,8 +101,76 @@ class _KinhDetailsState extends State<KinhDetails> {
               ),
               body: Column(
                 children: [
+                  SizedBox(
+                    width: double.infinity,
+                    child: DropdownButton<double>(
+                      value: selectedFontSize,
+                      items: const [
+                        DropdownMenuItem<double>(
+                          value: 1.0,
+                          alignment: Alignment.center,
+                          child: Text("gấp 1"),
+                        ),
+                        DropdownMenuItem<double>(
+                          value: 1.2,
+                          alignment: Alignment.center,
+                          child: Text("gấp 2"),
+                        ),
+                        DropdownMenuItem<double>(
+                          value: 1.3,
+                          alignment: Alignment.center,
+                          child: Text("gấp 3"),
+                        ),
+                        DropdownMenuItem<double>(
+                          value: 1.4,
+                          alignment: Alignment.center,
+                          child: Text("gấp 4"),
+                        ),
+                        DropdownMenuItem<double>(
+                          value: 1.5,
+                          alignment: Alignment.center,
+                          child: Text("gấp 5"),
+                        ),
+                        DropdownMenuItem<double>(
+                          value: 1.6,
+                          alignment: Alignment.center,
+                          child: Text("gấp 6"),
+                        ),
+                        DropdownMenuItem<double>(
+                          value: 1.7,
+                          alignment: Alignment.center,
+                          child: Text("gấp 7"),
+                        ),
+                        DropdownMenuItem<double>(
+                          value: 1.8,
+                          alignment: Alignment.center,
+                          child: Text("gấp 8"),
+                        ),
+                        DropdownMenuItem<double>(
+                          value: 1.9,
+                          alignment: Alignment.center,
+                          child: Text("gấp 9"),
+                        ),
+                        DropdownMenuItem<double>(
+                          value: 2,
+                          alignment: Alignment.center,
+                          child: Text("gấp 10"),
+                        ),
+                      ],
+                      onChanged: (value) {
+                        setState(() {
+                          selectedFontSize = value!;
+                        });
+                      },
+                    ),
+                  ),
                   Expanded(
-                    child: Markdown(data: snapshot.data.toString()),
+                    child: Markdown(
+                      data: snapshot.data.toString(),
+                      styleSheet: MarkdownStyleSheet(
+                        textScaleFactor: selectedFontSize,
+                      ),
+                    ),
                   ),
                   FutureBuilder(
                     future: kinhs,
