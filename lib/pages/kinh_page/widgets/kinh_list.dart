@@ -80,7 +80,15 @@ class _KinhListState extends State<KinhList> {
                       filteredItems[index].name,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
-                        fontSize: screenSize.width < largeDevices ? 12 : 16,
+                        fontSize: screenSize.width < portraitPhones
+                            ? 12
+                            : screenSize.width < tablets
+                                ? 13
+                                : screenSize.width < laptops
+                                    ? 14
+                                    : screenSize.width < largeDevices
+                                        ? 15
+                                        : 16,
                       ),
                       textAlign: TextAlign.center,
                     ),
