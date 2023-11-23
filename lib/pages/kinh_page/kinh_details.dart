@@ -101,62 +101,30 @@ class _KinhDetailsState extends State<KinhDetails> {
               ),
               body: Column(
                 children: [
-                  SizedBox(
+                  Container(
                     width: double.infinity,
                     child: DropdownButton<double>(
                       value: selectedFontSize,
-                      items: const [
-                        DropdownMenuItem<double>(
-                          value: 1.0,
-                          alignment: Alignment.center,
-                          child: Text("gấp 1"),
-                        ),
-                        DropdownMenuItem<double>(
-                          value: 1.2,
-                          alignment: Alignment.center,
-                          child: Text("gấp 2"),
-                        ),
-                        DropdownMenuItem<double>(
-                          value: 1.3,
-                          alignment: Alignment.center,
-                          child: Text("gấp 3"),
-                        ),
-                        DropdownMenuItem<double>(
-                          value: 1.4,
-                          alignment: Alignment.center,
-                          child: Text("gấp 4"),
-                        ),
-                        DropdownMenuItem<double>(
-                          value: 1.5,
-                          alignment: Alignment.center,
-                          child: Text("gấp 5"),
-                        ),
-                        DropdownMenuItem<double>(
-                          value: 1.6,
-                          alignment: Alignment.center,
-                          child: Text("gấp 6"),
-                        ),
-                        DropdownMenuItem<double>(
-                          value: 1.7,
-                          alignment: Alignment.center,
-                          child: Text("gấp 7"),
-                        ),
-                        DropdownMenuItem<double>(
-                          value: 1.8,
-                          alignment: Alignment.center,
-                          child: Text("gấp 8"),
-                        ),
-                        DropdownMenuItem<double>(
-                          value: 1.9,
-                          alignment: Alignment.center,
-                          child: Text("gấp 9"),
-                        ),
-                        DropdownMenuItem<double>(
-                          value: 2,
-                          alignment: Alignment.center,
-                          child: Text("gấp 10"),
-                        ),
-                      ],
+                      items: [
+                        1.0,
+                        1.1,
+                        1.2,
+                        1.3,
+                        1.4,
+                        1.5,
+                        1.6,
+                        1.7,
+                        1.8,
+                        1.9,
+                        2.0
+                      ].map((fontSize) {
+                        return DropdownMenuItem<double>(
+                          value: fontSize,
+                          child: Text(
+                            "Kích thước chữ x${fontSize.toString()}",
+                          ),
+                        );
+                      }).toList(),
                       onChanged: (value) {
                         setState(() {
                           selectedFontSize = value!;
