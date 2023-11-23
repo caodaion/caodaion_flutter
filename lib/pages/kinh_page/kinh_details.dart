@@ -157,9 +157,6 @@ class _KinhDetailsState extends State<KinhDetails> {
                       }
                     },
                   ),
-                  SizedBox(
-                    height: screenSize.width < largeDevices ? 30 : 0,
-                  ),
                 ],
               ),
             );

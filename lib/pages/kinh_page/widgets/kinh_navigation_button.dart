@@ -23,7 +23,12 @@ class KinhNavigationButton extends StatelessWidget {
             const RoundedRectangleBorder(),
           ),
           padding: MaterialStateProperty.all(
-            const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+            const EdgeInsets.only(
+              top: 16.0,
+              right: 24.0,
+              bottom: 32.0,
+              left: 24.0,
+            ),
           ),
         ),
         onPressed: onPressed,
