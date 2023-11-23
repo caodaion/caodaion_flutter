@@ -1,14 +1,20 @@
 import 'dart:convert';
 
+import 'package:caodaion_flutter/pages/kinh_page/widgets/kinh_navigation_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
+import '../../constant/constant.dart';
 import '../../model/kinh.dart';
 import '../../service/kinh_service.dart';
+import 'package:go_router/go_router.dart';
 
 class KinhDetails extends StatefulWidget {
-  const KinhDetails({Key? key}) : super(key: key);
+  const KinhDetails({Key? key})
+      : super(
+          key: key,
+        );
 
   @override
   State<KinhDetails> createState() => _KinhDetailsState();
@@ -54,6 +60,8 @@ class _KinhDetailsState extends State<KinhDetails> {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+
     final settings = ModalRoute.of(context)!.settings;
     final Map<String, dynamic> args =
         settings.arguments as Map<String, dynamic>;
@@ -82,15 +90,81 @@ class _KinhDetailsState extends State<KinhDetails> {
                       return Text(
                           'Error loading kinhs: ${kinhsSnapshot.error}');
                     } else {
-                      return Text('Loading...');
+                      return const Text('Loading...');
                     }
                   },
                 ),
+                leading: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    context.go('/kinh');
+                  },
+                ),
               ),
-              body: Markdown(data: snapshot.data.toString()),
+              body: Column(
+                children: [
+                  Expanded(
+                    child: Markdown(data: snapshot.data.toString()),
+                  ),
+                  FutureBuilder(
+                    future: kinhs,
+                    builder: (context, kinhListSnapshot) {
+                      if (kinhListSnapshot.hasData &&
+                          kinhListSnapshot.data!.isNotEmpty) {
+                        int index = kinhListSnapshot.data!
+                            .indexWhere((element) => element.key == path);
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            KinhNavigationButton(
+                              buttonText: kinhListSnapshot
+                                      .data?[index - 1 < 0 ? 0 : index - 1]
+                                      .name ??
+                                  '',
+                              onPressed: () {
+                                context.go(
+                                    '/kinh/${kinhListSnapshot.data?[index - 1 < 0 ? 0 : index - 1].key}');
+                                context.push(
+                                    '/kinh/${kinhListSnapshot.data?[index - 1 < 0 ? 0 : index - 1].key}');
+                              },
+                              icon: Icons.arrow_back,
+                              iconLocation: "start",
+                            ),
+                            KinhNavigationButton(
+                              buttonText: kinhListSnapshot
+                                      .data?[index + 1 ==
+                                              kinhListSnapshot.data!.length
+                                          ? index
+                                          : index + 1]
+                                      .name ??
+                                  '',
+                              onPressed: () {
+                                context.go(
+                                    '/kinh/${kinhListSnapshot.data?[index + 1 == kinhListSnapshot.data!.length ? index : index + 1].key}');
+                                context.push(
+                                    '/kinh/${kinhListSnapshot.data?[index + 1 == kinhListSnapshot.data!.length ? index : index + 1].key}');
+                              },
+                              icon: Icons.arrow_forward,
+                              iconLocation: "end",
+                            ),
+                          ],
+                        );
+                      } else if (kinhListSnapshot.hasError) {
+                        return Text(
+                            'Error loading kinhs: ${kinhListSnapshot.error}');
+                      } else {
+                        return const Text('Loading...');
+                      }
+                    },
+                  ),
+                  SizedBox(
+                    height: screenSize.width < largeDevices ? 30 : 0,
+                  ),
+                ],
+              ),
             );
           } else {
-            return CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
         },
       ),

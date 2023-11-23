@@ -51,7 +51,23 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
               tooltip: "Thánh Ngôn Hiệp Tuyển",
             ),
             const SizedBox(
-              width: 40,
+              width: 70,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "Đọc kinh",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 12,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
+                ],
+              ),
             ),
             BottomAppBarItem(
               onPressed: () {

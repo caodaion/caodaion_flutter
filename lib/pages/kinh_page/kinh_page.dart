@@ -11,6 +11,7 @@ class KinhPage extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: const Tooltip(
               message: "Kinh Cúng Tứ Thời và Quan Hôn Tang Tế",
               child: Text("Kinh Cúng Tứ Thời và Quan Hôn Tang Tế"),
