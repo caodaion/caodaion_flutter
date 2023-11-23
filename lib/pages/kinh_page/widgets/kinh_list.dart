@@ -37,7 +37,7 @@ class _KinhListState extends State<KinhList> {
         future: kinhs,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else {
@@ -80,6 +80,7 @@ class _KinhListState extends State<KinhList> {
                       filteredItems[index].name,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
+                        fontSize: screenSize.width < largeDevices ? 12 : 16,
                       ),
                       textAlign: TextAlign.center,
                     ),

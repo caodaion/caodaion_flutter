@@ -53,5 +53,10 @@
         "key": "kinh-tam-thanh",
         "name": "Kinh Tắm Thánh",
         "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-vao-hoc",
+        "name": "Kinh Vào Học",
+        "group": "quan_hon_tang_te"
     }
 ]
