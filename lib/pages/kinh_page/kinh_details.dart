@@ -1,11 +1,8 @@
 import 'dart:convert';
-
 import 'package:caodaion_flutter/pages/kinh_page/widgets/kinh_navigation_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-
-import '../../constant/constant.dart';
 import '../../model/kinh.dart';
 import '../../service/kinh_service.dart';
 import 'package:go_router/go_router.dart';
@@ -78,24 +75,24 @@ class _KinhDetailsState extends State<KinhDetails> {
                 // Use the title of the first item in the kinhs list
                 title: FutureBuilder(
                   future: kinhs,
-                  builder: (context, kinhsSnapshot) {
-                    if (kinhsSnapshot.hasData &&
-                        kinhsSnapshot.data!.isNotEmpty) {
+                  builder: (context, kinhListSnapshot) {
+                    if (kinhListSnapshot.hasData &&
+                        kinhListSnapshot.data!.isNotEmpty) {
                       return Text(
-                        kinhsSnapshot.data!
+                        kinhListSnapshot.data!
                             .firstWhere((element) => element.key == path)
                             .name,
                       );
-                    } else if (kinhsSnapshot.hasError) {
+                    } else if (kinhListSnapshot.hasError) {
                       return Text(
-                          'Error loading kinhs: ${kinhsSnapshot.error}');
+                          'Error loading kinhs: ${kinhListSnapshot.error}');
                     } else {
                       return const Text('Loading...');
                     }
                   },
                 ),
                 leading: IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   onPressed: () {
                     context.go('/kinh');
                   },
@@ -111,38 +108,43 @@ class _KinhDetailsState extends State<KinhDetails> {
                     builder: (context, kinhListSnapshot) {
                       if (kinhListSnapshot.hasData &&
                           kinhListSnapshot.data!.isNotEmpty) {
-                        int index = kinhListSnapshot.data!
+                        int mainIndex = kinhListSnapshot.data!
+                            .indexWhere((element) => element.key == path);
+                        List kinhList = kinhListSnapshot.data!
+                            .where((element) =>
+                                element.group ==
+                                kinhListSnapshot.data![mainIndex].group)
+                            .toList();
+                        int index = kinhList
                             .indexWhere((element) => element.key == path);
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             KinhNavigationButton(
-                              buttonText: kinhListSnapshot
-                                      .data?[index - 1 < 0 ? 0 : index - 1]
-                                      .name ??
-                                  '',
+                              buttonText:
+                                  kinhList[index - 1 < 0 ? 0 : index - 1]
+                                          .name ??
+                                      '',
                               onPressed: () {
                                 context.go(
-                                    '/kinh/${kinhListSnapshot.data?[index - 1 < 0 ? 0 : index - 1].key}');
+                                    '/kinh/${kinhList[index - 1 < 0 ? 0 : index - 1].key}');
                                 context.push(
-                                    '/kinh/${kinhListSnapshot.data?[index - 1 < 0 ? 0 : index - 1].key}');
+                                    '/kinh/${kinhList[index - 1 < 0 ? 0 : index - 1].key}');
                               },
                               icon: Icons.arrow_back,
                               iconLocation: "start",
                             ),
                             KinhNavigationButton(
-                              buttonText: kinhListSnapshot
-                                      .data?[index + 1 ==
-                                              kinhListSnapshot.data!.length
+                              buttonText: kinhList[index + 1 == kinhList.length
                                           ? index
                                           : index + 1]
                                       .name ??
                                   '',
                               onPressed: () {
                                 context.go(
-                                    '/kinh/${kinhListSnapshot.data?[index + 1 == kinhListSnapshot.data!.length ? index : index + 1].key}');
+                                    '/kinh/${kinhList[index + 1 == kinhList.length ? index : index + 1].key}');
                                 context.push(
-                                    '/kinh/${kinhListSnapshot.data?[index + 1 == kinhListSnapshot.data!.length ? index : index + 1].key}');
+                                    '/kinh/${kinhList[index + 1 == kinhList.length ? index : index + 1].key}');
                               },
                               icon: Icons.arrow_forward,
                               iconLocation: "end",

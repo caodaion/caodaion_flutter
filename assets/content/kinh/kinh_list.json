@@ -20,6 +20,36 @@
         "group": "cung_tu_thoi"
     },
     {
+        "key": "tien-giao",
+        "name": "Tiên Giáo",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "nho-giao",
+        "name": "Nho Giáo",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "dang-hoa",
+        "name": "Dâng Hoa",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "dang-ruou",
+        "name": "Dâng Rượu",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "dang-tra",
+        "name": "Dâng Trà",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "ngu-nguyen",
+        "name": "Ngũ Nguyện",
+        "group": "cung_tu_thoi"
+    },
+    {
         "key": "kinh-tam-thanh",
         "name": "Kinh Tắm Thánh",
         "group": "quan_hon_tang_te"
