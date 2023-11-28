@@ -46,20 +46,16 @@ class _KinhDetailsState extends State<KinhDetails> {
 
       // Decode content using UTF-8
       String decodedContent = utf8.decode(bytes.buffer.asUint8List());
-      print('Decoded Content: $decodedContent');
       setState(() {});
       return decodedContent;
     } catch (e) {
       // Handle any errors that occur during file loading or decoding
-      print('Error loading text file: $e');
       return 'Error loading content';
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-
     final settings = ModalRoute.of(context)!.settings;
     final Map<String, dynamic> args =
         settings.arguments as Map<String, dynamic>;
@@ -101,7 +97,7 @@ class _KinhDetailsState extends State<KinhDetails> {
               ),
               body: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     width: double.infinity,
                     child: DropdownButton<double>(
                       value: selectedFontSize,

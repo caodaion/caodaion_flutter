@@ -50,6 +50,61 @@
         "group": "cung_tu_thoi"
     },
     {
+        "key": "kinh-giai-kho",
+        "name": "Kinh Giải Khổ",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "kinh-doan-nghiet",
+        "name": "Kinh Đoạn Nghiệt",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "kinh-chuyen-phap-loi-am",
+        "name": "Kinh Chuyển Pháp Lôi Âm",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "kinh-chuyen-luat-bach-ngoc",
+        "name": "Kinh Chuyển Luật Bạch Ngọc",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "kinh-phat-mau",
+        "name": "Kinh Phật Mẫu",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "kinh-cuu-vi-tien-nuong",
+        "name": "Kinh Cửu Vị Tiên Nương",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "sam-cau-sieu",
+        "name": "Sám Cầu Siêu",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "kinh-sam-hoi",
+        "name": "Kinh Sám Hối",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "kinh-sam-hoi",
+        "name": "Kinh Sám Hối",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "bai-khen-ngoi-kinh-sam-hoi",
+        "name": "Bài Khen Ngợi Kinh Sám Hối",
+        "group": "cung_tu_thoi"
+    },
+    {
+        "key": "kinh-cuu-kho",
+        "name": "Kinh Cứu Khổ",
+        "group": "cung_tu_thoi"
+    },
+    {
         "key": "kinh-tam-thanh",
         "name": "Kinh Tắm Thánh",
         "group": "quan_hon_tang_te"
