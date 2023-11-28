@@ -298,5 +298,45 @@
         "key": "dua-linh",
         "name": "Đưa Linh",
         "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cao-hau-tho",
+        "name": "Cáo Hậu Thổ",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "ha-rong",
+        "name": "Hạ Rộng",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "tu-gia-mo-phan",
+        "name": "Từ Giã Mộ Phần",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "dan-vong",
+        "name": "Dẫn Vong",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "an-linh-sang",
+        "name": "An Linh Sàn",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "tu-gia-vong-linh",
+        "name": "Từ Giã Vong Linh",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-khai-cuu",
+        "name": "Kinh Khai Cửu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-de-nhut-cuu",
+        "name": "Kinh Đệ Nhứt Cửu",
+        "group": "quan_hon_tang_te"
     }
 ]
