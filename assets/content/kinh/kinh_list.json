@@ -218,5 +218,85 @@
         "key": "cao-tu-to",
         "name": "Cáo Từ Tổ (Thọ Tang)",
         "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "thinh-vong",
+        "name": "Thỉnh Vong",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "thanh-phuc",
+        "name": "Thành Phục",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "trieu-tich",
+        "name": "Triêu Tịch",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "dieu-tang",
+        "name": "Điếu Tang",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cha-me-quy-lieu",
+        "name": "Cha Mẹ Quy Liễu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-to-phu-quy-lieu",
+        "name": "Kinh Tổ Phụ Quy Liễu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-tung-chong-quy-lieu",
+        "name": "Kinh Tụng Chồng Quy Liễu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-tung-vo-quy-lieu",
+        "name": "Kinh Tụng Vợ Quy Liễu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-tung-huynh-de-mang-phan",
+        "name": "Kinh Tụng Huynh Đệ Mãng Phần",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-tung-ba-con-quy-lieu",
+        "name": "Kinh Tụng Bà Con Quy Liễu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cao-dao-lo",
+        "name": "Cáo Đạo Lộ",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cao-thuy-than",
+        "name": "Cáo Thủy Thần",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cao-minh-sanh-thien-ban",
+        "name": "Cáo Minh Sanh (Thiên Bàn)",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cao-minh-sanh-tu-to",
+        "name": "Cáo Minh Sanh (Từ Tổ)",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "dong-quan",
+        "name": "Động Quan",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "dua-linh",
+        "name": "Đưa Linh",
+        "group": "quan_hon_tang_te"
     }
 ]
