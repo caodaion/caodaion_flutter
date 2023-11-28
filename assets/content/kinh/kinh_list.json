@@ -113,5 +113,110 @@
         "key": "kinh-vao-hoc",
         "name": "Kinh Vào Học",
         "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-an-com",
+        "name": "Kinh Căn Cơm",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-an-com-roi",
+        "name": "Kinh Ăn Cơm Rồi",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-di-ngu",
+        "name": "Kinh Đi Ngủ",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-thuc-day",
+        "name": "Kinh Thức dậy",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "gia-quan",
+        "name": "Gia Quan",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "gia-ke",
+        "name": "Gia Kê",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "vu-qui",
+        "name": "Vu Qui",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "loi-nguyen-cau-hon",
+        "name": "Lời Nguyện Cầu Hồn",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "sam-hon-phoi",
+        "name": "Sám Hôn Phối",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "giao-boi",
+        "name": "Giao Bôi",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-dao-tue",
+        "name": "Kinh Đáo Tuế",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "con-chau-chuc-mung",
+        "name": "Con Cháu Chúc Mừng",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cau-cho-con-lanh-binh",
+        "name": "Cầu Cho Con Lành Bịnh",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cau-cho-minh-lanh-binh",
+        "name": "Cầu Cho Mình Lành Bịnh",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cau-cho-nguoi-lanh-binh",
+        "name": "Cầu Cho Người Lành Bịnh",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cau-hon-luc-hap-hoi",
+        "name": "Cầu Hồn Lúc Hấp Hối",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "dua-linh-hon",
+        "name": "Đưa Linh Hồn",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "tuyet-khi",
+        "name": "Tuyệt Khí",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "nhap-mach",
+        "name": "Nhập Mạch",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cau-sieu-nguoi-moi-tu-tran",
+        "name": "Cầu Siêu Người Mới Từ Trần",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cao-tu-to",
+        "name": "Cáo Từ Tổ (Thọ Tang)",
+        "group": "quan_hon_tang_te"
     }
 ]
