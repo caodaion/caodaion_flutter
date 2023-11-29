@@ -410,6 +410,36 @@
         "group": "quan_hon_tang_te"
     },
     {
+        "key": "hien-hoa",
+        "name": "Hiến Hoa (thông dụng)",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "hien-hoa-cha-me",
+        "name": "Hiến Hoa (dùng cho cha mẹ)",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "hien-qua",
+        "name": "Hiến Quả (thông dụng)",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "hien-qua-cha-me",
+        "name": "Hiến Quả (dùng cho cha mẹ)",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "hien-tuu-tra",
+        "name": "Hiến Tửu Trà (Thông dụng)",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "hien-tuu-tra-cha-me",
+        "name": "Hiến tửu Trà (dùng cho cha mẹ)",
+        "group": "quan_hon_tang_te"
+    },
+    {
         "key": "cau-vong",
         "name": "Cầu Vong",
         "group": "quan_hon_tang_te"
@@ -437,6 +467,11 @@
     {
         "key": "dung-tra",
         "name": "Dưng Trà",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "loi-nguyen",
+        "name": "Lời Nguyện",
         "group": "quan_hon_tang_te"
     }
 ]
