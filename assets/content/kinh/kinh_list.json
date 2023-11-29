@@ -338,5 +338,105 @@
         "key": "kinh-de-nhut-cuu",
         "name": "Kinh Đệ Nhứt Cửu",
         "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-de-nhi-cuu",
+        "name": "Kinh Đệ Nhị Cửu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-de-tam-cuu",
+        "name": "Kinh Đệ Tam Cửu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-de-tu-cuu",
+        "name": "Kinh Đệ Tứ Cửu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-de-ngu-cuu",
+        "name": "Kinh Đệ Ngũ Cửu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-de-luc-cuu",
+        "name": "Kinh Đệ Lục Cửu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-de-that-cuu",
+        "name": "Kinh Đệ Thất Cửu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-de-bat-cuu",
+        "name": "Kinh Đệ Bát Cửu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-de-cuu-cuu",
+        "name": "Kinh Đệ Cửu Cửu",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-tieu-tuong",
+        "name": "Kinh Tiểu Tường",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-dai-tuong",
+        "name": "Kinh Đại Tường",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "thinh-tien-linh-ong-ba",
+        "name": "Thỉnh Tiên Linh (Ông Bà)",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-ky-com",
+        "name": "Kinh Kỵ Cơm",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-gio-hoi",
+        "name": "Kinh Giỗ Hội",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-gio-hoi_",
+        "name": "Kinh Giỗ Hội",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "cau-vong",
+        "name": "Cầu Vong",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-cung-thap-loai-co-hon",
+        "name": "Kinh Cúng Thập Loại Cô Hồn",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "thinh-chien-si",
+        "name": "Thỉnh Chiến Sĩ",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-cung-chien-si",
+        "name": "Kinh Cúng Chiến Sĩ",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "kinh-cung-chien-si_",
+        "name": "Kinh Cúng Chiến Sĩ",
+        "group": "quan_hon_tang_te"
+    },
+    {
+        "key": "dung-tra",
+        "name": "Dưng Trà",
+        "group": "quan_hon_tang_te"
     }
 ]
