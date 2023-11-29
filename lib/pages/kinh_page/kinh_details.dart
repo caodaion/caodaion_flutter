@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:caodaion_flutter/pages/kinh_page/widgets/kinh_navigation_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_selectionarea/flutter_markdown.dart';
 import '../../model/kinh.dart';
 import '../../service/kinh_service.dart';
 import 'package:go_router/go_router.dart';
@@ -129,10 +129,17 @@ class _KinhDetailsState extends State<KinhDetails> {
                     ),
                   ),
                   Expanded(
-                    child: Markdown(
-                      data: snapshot.data.toString(),
-                      styleSheet: MarkdownStyleSheet(
-                        textScaleFactor: selectedFontSize,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: SelectionArea(
+                        child: SingleChildScrollView(
+                          child: MarkdownBody(
+                            data: snapshot.data.toString(),
+                            styleSheet: MarkdownStyleSheet(
+                              textScaleFactor: selectedFontSize,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
