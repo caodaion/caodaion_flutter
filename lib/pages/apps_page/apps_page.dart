@@ -23,6 +23,7 @@ class _AppsPageState extends State<AppsPage> {
               id: 0,
               title: "New Message Title",
               body: "This is the body",
+              payload: "https://www.caodaion.com/",
               flutterLocalNotificationsPlugin: flutterLocalNotificationsPlugin,
             );
           },
