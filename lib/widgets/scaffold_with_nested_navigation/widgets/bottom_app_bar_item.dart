@@ -25,6 +25,7 @@ class BottomAppBarItem extends StatelessWidget {
       style: TextButton.styleFrom(
         foregroundColor:
             isActive ? Theme.of(context).primaryColor : const Color(0xff5F6368),
+        padding: EdgeInsets.all(0),
       ),
       child: Tooltip(
         message: tooltip,
