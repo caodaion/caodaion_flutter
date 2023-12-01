@@ -90,11 +90,6 @@
         "group": "cung_tu_thoi"
     },
     {
-        "key": "kinh-sam-hoi",
-        "name": "Kinh Sám Hối",
-        "group": "cung_tu_thoi"
-    },
-    {
         "key": "bai-khen-ngoi-kinh-sam-hoi",
         "name": "Bài Khen Ngợi Kinh Sám Hối",
         "group": "cung_tu_thoi"
